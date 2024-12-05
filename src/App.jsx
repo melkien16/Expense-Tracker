@@ -21,6 +21,7 @@ const Expences = [
   },
   {
     id: 4,
+    
     title: "New Desk (Wooden)",
     amount: 450,
     date: new Date(2024, 8, 12),
@@ -39,7 +40,8 @@ const App = () => {
   const [newTitel, setNewTitle] = useState();
   const [newAmount, setNewAmount] = useState();
   const [newDate, setNewDate] = useState();
-  const [filterYear, setFilterYear] = useState(2021);
+
+  const [filterYear, setFilterYear] = useState(2024);
 
   const expenseChangeHandler = (event) => {
     setNewTitle(event.target.value);
@@ -86,7 +88,7 @@ const App = () => {
     totalExpences += Number(expence.amount);
   }
 
-  const montheExpences = (month: number) => {
+  const montheExpences = (month) => {
     let total = 0;
     for (const expence of filterExpences) {
       if (expence.date.getMonth() === month) {
@@ -123,12 +125,14 @@ const App = () => {
           >
             <div className="mb-4">
               <label
+                for="Expense"
                 htmlFor="Expense"
                 className="block text-gray-700 font-bold mb-2"
               >
                 Expense:{" "}
               </label>
               <input
+                id="Expense"
                 type="text"
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 value={newTitel}
@@ -137,12 +141,14 @@ const App = () => {
             </div>
             <div className="mb-4">
               <label
+                for="amount"
                 htmlFor="Amount"
                 className="block text-gray-700 font-bold mb-2"
               >
                 Amount:{" "}
               </label>
               <input
+                id="amount"
                 type="number"
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 value={newAmount}
@@ -151,12 +157,14 @@ const App = () => {
             </div>
             <div className="mb-4">
               <label
+                for="date"
                 htmlFor="Date"
                 className="block text-gray-700 font-bold mb-2"
               >
                 Date:{" "}
               </label>
               <input
+                id="date"
                 type="date"
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 value={newDate}
@@ -171,6 +179,7 @@ const App = () => {
             </button>
           </form>
         </div>
+
         <div
           className="bg-slate-800 m-20 mt-4
            p-10 w-1/2 rounded-lg text-white shadow-2xl"
@@ -186,7 +195,9 @@ const App = () => {
                 <option value="2021">2021</option>
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
-                <option value="2024">2024</option>
+                <option value="2024" selected>
+                  2024
+                </option>
               </select>
             </div>
           </div>
